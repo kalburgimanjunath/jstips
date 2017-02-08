@@ -40,12 +40,12 @@ function f2() { return "I'm not strict."; }
 
 Добавляя эту директиву в JavaScript файл или функцию, мы побуждаем JavaScript движек работать в строгом режиме, что выключает многое поведение, которое обычно нежелательно в больших JS проэктах. Кроме многих других вещей, строгий режим поведение следующих вещей:
 
-* Variables can only be introduced when they are preceded with "var"
-* Attempting to write to read-only properties generates a noisy error
-* You have to call constructors with the "new" keyword
-* "this" is not implicitly bound to the global object
-* Very limited use of eval() allowed
-* Protects you from using reserved words or future reserved words as variable names
+* Переменные могут быть объявлены только с указанием "var" перед ними
+* Попытка написать свойства, которые можно только читать, выдает надоедливую ошибку
+* Вы должны вызывать конструкторы только с ключевым словом "new"
+* "this" не привязан по умолчанию к глобальному объекту
+* Разрешено очень ограниченное использование eval()
+* Защищает вас от использования зарезервированных слова или зарезервированных слова для будущего как имена переменных
 
 Strict mode is great for new projects, but can be challenging to introduce into older projects that don't already use it in most places.  It also can be problematic if your build chain concatenates all your js files into one big file, as this may cause all files to execute in strict mode.
 
