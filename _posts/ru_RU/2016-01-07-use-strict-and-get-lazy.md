@@ -11,11 +11,11 @@ categories:
     - ru_RU
 ---
 
-Строгий режим в JavaScript упрощает задачу для разработчика писать "безопасный" JavaScript.
+Строгий режим в JavaScript помогает разработчикам писать "безопасный" код.
 
-По умолчанию JavaScript позволяет программисту быть более беспечным. Например, он не требует нас объявлять переменные с `var`, когда мы первый раз вводим их. Для неопытного программиста это может показаться удобным, но это источник многих проблема, когда мы опечатываемся в названии перменной или случайно ссылаемся на нее вне ее контекста.
+По умолчанию JavaScript позволяет программисту быть более беспечным. Например, он не требует нас объявлять переменные с `var`, при первом объявлении. Это может показаться удобным для неопытного программиста, но это источник многих проблем, когда мы допускаем ошибку в названии перменной или случайно ссылаемся на нее вне ее контекста.
 
-Программисты любят заставлять компьютер делать скучную работу за нас и автоматически проверять нашу работу на ошибки. Это и позволяет нам cделать директива "use strict" , превращая наши ошибки в ошибки JavaScript.
+Программисты любят заставлять компьютер выполнять скучную работу за них и автоматически проверять работу на ошибки. Это и позволяет нам cделать директива "use strict", превращая наши ошибки в JavaScript ошибки.
 
 Чтобы включить эту директиву, мы можем добавить ее в начало js файла:
 
@@ -47,10 +47,10 @@ function f2() { return "I'm not strict."; }
 * Разрешено очень ограниченное использование eval()
 * Защищает вас от использования зарезервированных слова или зарезервированных слова для будущего как имена переменных
 
-Strict mode is great for new projects, but can be challenging to introduce into older projects that don't already use it in most places.  It also can be problematic if your build chain concatenates all your js files into one big file, as this may cause all files to execute in strict mode.
+Строгий режим отлично подходит для новых проектов, но может быть проблемой внедрить его в один из старых проектов, если вы нигде его не использовали. Также могут возникнуть проблемы, если вы склеиваетес все js файлы в один большой, весь js будет работать в строгом режиме.
 
-It is not a statement, but a literal expression, ignored by earlier versions of JavaScript.
-Strict mode is supported in:
+Это не оператор, а выражение, которые игнорируется ранними версиями JavaScript.
+Строгий режим поддерживается в:
 
 * Internet Explorer from version 10.
 * Firefox from version 4.
@@ -58,4 +58,4 @@ Strict mode is supported in:
 * Safari from version 5.1.
 * Opera from version 12.
 
-[See MDN for a fuller description of strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode).
+[На MDN найдете более полное описание строгого режима](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode).
