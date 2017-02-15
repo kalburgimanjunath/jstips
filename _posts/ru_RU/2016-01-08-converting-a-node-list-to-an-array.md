@@ -1,23 +1,23 @@
 ---
 layout: post
 
-title: Преобразуем список узлов в массив
+title: Преобразуем NodeList в массив
 tip-number: 08
 tip-username: Tevko
 tip-username-profile: https://twitter.com/tevko
-tip-tldr: Быстрый, безопасный и переиспользуемый способ превратить список узлов в массив DOM-элементов
+tip-tldr: Быстрый, безопасный и переиспользуемый способ превратить NodeList в массив DOM-элементов
 
 categories:
-    - en
+    - ru_RU
 ---
 
-Метод `querySelectorAll` возвращает объект подобный массиву, который называется NodeList (список узлов). Эти структуры данных называются массиво-подобными, потому что они выглядят как массивы, но к ним нельзя применить методы `map` или `forEach`. Быстрый, безопасный и переиспользуемый способ превратить список узлов в массив DOM-элементов:
+Метод `querySelectorAll` возвращает объект подобный массиву, который называется NodeList (список узлов). Эти структуры данных называются массивоподобными, потому что они выглядят как массивы, но к ним нельзя применить такие методы, как `map` или `forEach`. Быстрый, безопасный и переиспользуемый способ превратить NodeList в массив DOM-элементов:
 
 ```javascript
 const nodelist = document.querySelectorAll('div');
 const nodelistToArray = Array.apply(null, nodelist);
 
-//после чего ..
+//после этого ..
 
 nodelistToArray.forEach(...);
 nodelistToArray.map(...);
@@ -26,33 +26,33 @@ nodelistToArray.slice(...);
 //и так далее...
 ```
 
-The `apply` method is used to pass an array of arguments to a function with a given `this` value. [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) states that `apply` will take an array-like object, which is exactly what `querySelectorAll` returns. Since we don't need to specify a value for `this` in the context of the function, we pass in `null` or `0`. The result is an actual array of DOM elements which contains all of the available array methods.
+Метод `apply` используется для передачи массива аргументов в функцию с указанием значения `this`. [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) сообщает, что `apply` принимает массивоподобный объект, как раз то, что возвращает `querySelectorAll`. Поскольку нам не надо указывать значение `this` в контексте функции, мы передаем `null` или `0`. В результате мы получим массив DOM-элементов, который имеет все методы массива.
 
-Alternatively you can use `Array.prototype.slice` combined with `Function.prototype.call` or `Function.prototype.apply` passing the array-like object as the value of `this`:
+Альтернативный вариант — использование `Array.prototype.slice` в связке с `Function.prototype.call` или `Function.prototype.apply` с передачей массивоподобного объекта в качестве значения `this`:
 
 ```javascript
 const nodelist = document.querySelectorAll('div');
-const nodelistToArray = Array.prototype.slice.call(nodelist); // or equivalently Array.prototype.slice.apply(nodelist);
+const nodelistToArray = Array.prototype.slice.call(nodelist); // или эквивалент Array.prototype.slice.apply(nodelist);
 
-//later on ..
+//после этого ..
 
 nodelistToArray.forEach(...);
 nodelistToArray.map(...);
 nodelistToArray.slice(...);
 
-//etc...
+//и так далее...
 ```
 
-Or if you are using ES2015 you can use the [spread operator `...`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
+Если вы пишете на ES2015, вы можете использовать [оператор "spread" `...`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
 
 ```js
-const nodelist = [...document.querySelectorAll('div')]; // returns a real array
+const nodelist = [...document.querySelectorAll('div')]; // возвращает настоящий массив
 
-//later on ..
+//после этого ..
 
 nodelist.forEach(...);
 nodelist.map(...);
 nodelist.slice(...);
 
-//etc...
+//и так далее...
 ```
