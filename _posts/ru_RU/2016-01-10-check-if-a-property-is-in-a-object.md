@@ -23,9 +23,9 @@ if (myObject.name) { ... }
 
 ```
 
-That's ok, but you have to know that there are two native ways for this kind of thing, the [`in` operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in) and [`Object.hasOwnProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty). Every object descended from `Object`, has both ways available.
+Это нормальный вариант, но вам также стоит знать, что есть 2 встроенных способа сделать подобное, [оператор `in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in) и [`Object.hasOwnProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty). Этими способы есть у любого объект, который наследуемого от `Object`.
 
-### See the big Difference
+### Разница работы большая
 
 ```javascript
 var myObject = {
@@ -35,7 +35,7 @@ var myObject = {
 myObject.hasOwnProperty('name'); // true
 'name' in myObject; // true
 
-myObject.hasOwnProperty('valueOf'); // false, valueOf is inherited from the prototype chain
+myObject.hasOwnProperty('valueOf'); // false, valueOf унаследован по цепочке прототипов
 'valueOf' in myObject; // true
 
 ```
