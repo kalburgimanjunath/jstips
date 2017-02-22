@@ -1,11 +1,11 @@
 ---
 layout: post
 
-title: Проверяем есть ли свойство в объекте
+title: Проверяем наличие свойства в объекте
 tip-number: 10
 tip-username: loverajoel
 tip-username-profile: https://www.twitter.com/loverajoel
-tip-tldr: Способы проверки если свойство есть в объекте.
+tip-tldr: Способы проверки наличия свойств в объекте.
 tip-writer-support: https://www.coinbase.com/loverajoel
 
 categories:
@@ -23,9 +23,9 @@ if (myObject.name) { ... }
 
 ```
 
-Это нормальный вариант, но вам также стоит знать, что есть 2 встроенных способа сделать подобное, [оператор `in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in) и [`Object.hasOwnProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty). Этими способы есть у любого объект, который наследуемого от `Object`.
+Это нормальный вариант, но вам также стоит знать, что есть 2 встроенных способа сделать подобное, [оператор `in`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in) и [`Object.hasOwnProperty`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty). Любой объект наследуемый от `Object`, имеет эти методы.
 
-### Разница работы большая
+### Различия в работе
 
 ```javascript
 var myObject = {
@@ -40,9 +40,9 @@ myObject.hasOwnProperty('valueOf'); // false, valueOf унаследован п�
 
 ```
 
-Both differ in the depth at which they check the properties. In other words, `hasOwnProperty` will only return true if key is available on that object directly. However, the `in` operator doesn't discriminate between properties created on an object and properties inherited from the prototype chain.
+Они отличаются глубиной проверки свойств. Другими словами `hasOwnProperty` вернет истину, если ключ содержится в объекте. Тогда как оператор `in` не различает свойства самого объекта и свойства, которые наследуются от прототипа.
 
-Here's another example:
+Вот другой пример:
 
 ```javascript
 var myFunc = function() {
@@ -53,9 +53,9 @@ myFunc.prototype.age = '10 days';
 var user = new myFunc();
 
 user.hasOwnProperty('name'); // true
-user.hasOwnProperty('age'); // false, because age is from the prototype chain
+user.hasOwnProperty('age'); // false, потому что age наследуется из цепочки прототипов
 ```
 
-Check the [live examples here](https://jsbin.com/tecoqa/edit?js,console)!
+Больше [примеров](https://jsbin.com/tecoqa/edit?js,console)!
 
-I also recommend reading [this discussion](https://github.com/loverajoel/jstips/issues/62) about common mistakes made when checking a property's existence in objects.
+Я также рекоменду прочитать [эту дискуссию](https://github.com/loverajoel/jstips/issues/62) про распространненые ошибки при проверке наличия свойств в объектах.
