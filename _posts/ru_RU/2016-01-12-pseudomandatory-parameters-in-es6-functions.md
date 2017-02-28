@@ -1,19 +1,17 @@
 ---
 layout: post
 
-title: Pseudomandatory parameters in ES6 functions
+title: Псевдообязательные параметры в ES2015 функциях
 tip-number: 12
 tip-username: Avraam Mavridis
 tip-username-profile: https://github.com/AvraamMavridis
-tip-tldr: In many programming languages the parameters of a function are by default mandatory and the developer has to explicitly define that a parameter is optional.
+tip-tldr: Во многих языка программирования параметры функции по умолчанию обязательны и разработчик должен отдельно указать, если параметр опционален.
 
 categories:
     - ru_RU
 ---
 
-Во многих языка программирования параметры функции по умолчанию обязательны и разработчик должен отдельно указать, если параметр опционален. В Javascript, любой параметр опционален, но мы можем воспроизвести это поведение без загрязнения тела функции, используя значения параметров по умолчанию из es2015.
-(http://exploringjs.com/es6/ch_parameter-handling.html#sec_parameter-default-values) feature.
-In many programming languages the parameters of a function are by default mandatory and the developer has to explicitly define that a parameter is optional. In Javascript, every parameter is optional, but we can enforce this behavior without messing with the actual body of a function, taking advantage of [**es6's default values for parameters**] (http://exploringjs.com/es6/ch_parameter-handling.html#sec_parameter-default-values) feature.
+Во многих языка программирования параметры функции по умолчанию обязательны и разработчик должен отдельно указать, если параметр опционален. В Javascript любой параметр опционален, но мы можем изменить это поведение, используя [**значения параметров по умолчанию из es2015**](http://exploringjs.com/es6/ch_parameter-handling.html#sec_parameter-default-values).
 
 ```javascript
 const _err = function( message ){
@@ -26,4 +24,4 @@ getSum( 10 ) // выкинет Error, b не определен
 getSum( undefined, 10 ) // выкинет Error, a не определен
 ```
 
- `_err` is a function that immediately throws an Error. If no value is passed for one of the parameters, the default value is going to be used, `_err` will be called and an Error will be thrown. You can see more examples for the **default parameters feature** on [Mozilla's Developer Network ](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/default_parameters)
+ `_err` — функция, которая сразу выкидывает ошибку. Если в функцию не был передан один из параметров, будет присвоено значение по умолчанию, в данном случае результат работы `_err`. Больше примеров с **параметрами по умолчанию** вы можете найти на [Mozilla's Developer Network](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/default_parameters)
