@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title: Стрелочные функции
+title: "Толстые" стрелочные функции
 tip-number: 14
 tip-username: pklinger
 tip-username-profile: https://github.com/pklinger/
@@ -11,7 +11,7 @@ categories:
     - ru_RU
 ---
 
-В ES2015 появились стрелочные функции, которые можно использовать для написания большого количества кода в несколько строк.
+В ES2015 появились "толстые" стрелочные функции, которые можно использовать для написания большого количества кода в несколько строк. Имя пришло от их синтаксиса `=>`, что значит толстая стрелка, в сравнении с тонкой стрелкой `->`. Некоторые программисты могут быть знакомы с таким типом функций из других языков, например Haskell, как `лямбда выражения`, или анонимные функции. Они называются анонимными, потому что не имеют своего названия.
 Имя
 Introduced as a new feature in ES6, fat arrow functions may come as a handy tool to write more code in fewer lines. The name comes from its syntax, `=>`, which is a 'fat arrow', as compared to a thin arrow `->`. Some programmers might already know this type of function from different languages such as Haskell, as 'lambda expressions', or as 'anonymous functions'. It is called anonymous, as these arrow functions do not have a descriptive function name.
 
