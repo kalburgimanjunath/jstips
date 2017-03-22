@@ -21,30 +21,31 @@ Introduced as a new feature in ES6, fat arrow functions may come as a handy tool
 
 ### Simple syntax example
 Have a look at these two code snippets, which do the exact same job, and you will quickly understand what fat arrow functions do:
-Посмотрите на эти 2 куска кода, которые делают одно и тоже, и вы сразу поймете что стрелочные функции делают
+Взгляните на эти 2 куска кода, которые делают одно и тоже, и вы сразу поймете что стрелочные функции делают
 
 ```javascript
-// general syntax for fat arrow functions
+// основной синтаксис "толстых" стрелочных функций
 param => expression
 
-// may also be written with parentheses
-// parentheses are required on multiple params
+// также может быть записан со скобками
+// скобки обязательны при нескольких параметрах
 (param1 [, param2]) => expression
 
 
-// using functions
+// используя функции
 var arr = [5,3,2,9,1];
 var arrFunc = arr.map(function(x) {
   return x * x;
 });
 console.log(arr)
 
-// using fat arrow
+// используя толстые стрелки
 var arr = [5,3,2,9,1];
 var arrFunc = arr.map((x) => x*x);
 console.log(arr)
 ```
 
+Как вы можете видеть, стрелочные функции в этом слуае могут сэкономить вам время на написании скобок и ключевых слов `function` и `return`.
 As you can see, the fat arrow function in this case can save you time typing out the parentheses as well as the function and return keywords. I would advise you to always write parentheses around the parameter inputs, as the parentheses will be needed for multiple input parameters, such as in `(x,y) => x+y`. It is just a way to cope with forgetting them in different use cases. But the code above would also work like this: `x => x*x`. So far, these are only syntactical improvements, which lead to fewer LOC and better readability.
 
 ### Lexically binding `this`
