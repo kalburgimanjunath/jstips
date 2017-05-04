@@ -45,7 +45,7 @@ var arrFunc = arr.map((x) => x*x);
 console.log(arr)
 ```
 
-Как вы можете видеть, стрелочные функции в этом слуае могут сэкономить вам время на написании скобок и ключевых слов `function` и `return`.
+Как вы можете видеть, стрелочные функции в этом слуае могут сэкономить вам время на написании скобок и ключевых слов `function` и `return`. Я бы советовал вам всегда писать скобки вокруг входящих параметров, так как скобки необходимо писать в случаях, когда параметров больше одного, например `(x,y) => x+y`. Это способ борьбы с забыванием их в рахных юзкейсах.
 As you can see, the fat arrow function in this case can save you time typing out the parentheses as well as the function and return keywords. I would advise you to always write parentheses around the parameter inputs, as the parentheses will be needed for multiple input parameters, such as in `(x,y) => x+y`. It is just a way to cope with forgetting them in different use cases. But the code above would also work like this: `x => x*x`. So far, these are only syntactical improvements, which lead to fewer LOC and better readability.
 
 ### Lexically binding `this`
@@ -54,7 +54,7 @@ There is another good reason to use fat arrow functions. There is the issue with
 
 ```javascript
 
-// globally defined this.i
+// глобальное определенная this.i
 this.i = 100;
 
 var counterA = new CounterA();
@@ -62,7 +62,7 @@ var counterB = new CounterB();
 var counterC = new CounterC();
 var counterD = new CounterD();
 
-// bad example
+// плохой пример
 function CounterA() {
   // CounterA's `this` instance (!! gets ignored here)
   this.i = 0;
@@ -74,7 +74,7 @@ function CounterA() {
   }, 500);
 }
 
-// manually binding that = this
+// ручная привязка that = this
 function CounterB() {
   this.i = 0;
   var that = this;
@@ -84,7 +84,7 @@ function CounterB() {
   }, 500);
 }
 
-// using .bind(this)
+// используя .bind(this)
 function CounterC() {
   this.i = 0;
   setInterval(function() {
@@ -93,7 +93,7 @@ function CounterC() {
   }.bind(this), 500);
 }
 
-// fat arrow function
+// стрелочная функция
 function CounterD() {
   this.i = 0;
   setInterval(() => {
